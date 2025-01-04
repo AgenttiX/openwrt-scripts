@@ -25,12 +25,12 @@ fi
 
 # Generate keys
 umask go=
-if [ ! -f wgserver.pub ]; then
-  echo "Remote server key was not found. Please write it to wgserver.pub and run this script again."
-  exit 1
-  # echo "Remote server key was not found. Generating."
-  # wg genkey | tee wgserver.key | wg pubkey > wgserver.pub
-fi
+# if [ ! -f wgserver.pub ]; then
+#   echo "Remote server key was not found. Please write it to wgserver.pub and run this script again."
+#   exit 1
+#   # echo "Remote server key was not found. Generating."
+#   # wg genkey | tee wgserver.key | wg pubkey > wgserver.pub
+# fi
 if [ ! -f wgclient.key ]; then
   echo "Client key was not found. Generating."
   wg genkey | tee wgclient.key | wg pubkey > wgclient.pub
@@ -45,7 +45,7 @@ VPN_KEY="$(cat wgclient.key)"
 # Pre-shared key
 VPN_PSK="$(cat wgclient.psk)"
 # Server public key
-VPN_PUB="$(cat wgserver.pub)"
+# VPN_PUB="$(cat wgserver.pub)"
 
 echo "Public key: ${VPN_PUB}"
 echo "PSK: ${VPN_PSK}"
