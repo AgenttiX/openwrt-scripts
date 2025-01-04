@@ -1,0 +1,5 @@
+*.key
+*.psk
+*.pub
+.idea
+wireguard/wireguard-settings.env
