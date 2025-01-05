@@ -4,6 +4,8 @@ set -eu
 # Based on:
 # https://openwrt.org/docs/guide-user/services/vpn/wireguard/client
 
+# This script seems not to create the GUI entries. Use the interfaces menu in LuCI instead.
+
 if command -v uci > /dev/null; then :; else
   echo "uci was not found. Are you running OpenWRT?"
 fi
@@ -80,3 +82,6 @@ uci add_list network.wgserver.allowed_ips="${VPN_ALLOWED_IPS}"
 
 uci commit network
 service network restart
+# service uhttpd restart
+
+echo "WireGuard configured."
