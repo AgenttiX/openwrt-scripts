@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 set -eu
 
-apk update
-apk add git git-http librespeed-go luci luci-ssl luci-app-attendedsysupgrade luci-app-snmpd luci-proto-wireguard nano
+opkg update
+# For dev builds: luci luci-ssl
+opkg install git git-http librespeed-go luci-app-attendedsysupgrade luci-app-snmpd luci-proto-wireguard mosh-server nano screen
 
-# Enable the LibreSpeed service here
+# Enable the LibreSpeed service here, if not already enabled.
+# The default port is 8989.
 # nano /etc/config/librespeed-go
 
-# Do this manually if everything is OK.
-# reboot
+echo "A reboot is required to enable the installed packages."
