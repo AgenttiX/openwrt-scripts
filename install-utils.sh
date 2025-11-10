@@ -4,7 +4,8 @@ set -eu
 opkg update
 # For dev builds: luci luci-ssl
 # bind-host and curl/wget are required for DDNS
-opkg install bind-host curl git git-http librespeed-go luci-app-attendedsysupgrade luci-app-ddns luci-app-snmpd luci-proto-wireguard mosh-server nano owut tmux
+# qrencode is required for generating WireGuard QR codes.
+opkg install bind-host curl git git-http librespeed-go luci-app-attendedsysupgrade luci-app-ddns luci-app-snmpd luci-proto-wireguard mosh-server nano owut qrencode tmux
 
 # Enable the LibreSpeed service here, if not already enabled.
 # The default port is 8989.
